@@ -6,9 +6,9 @@ export default function Page() {
     <div className="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen">
       
 
-<nav className="sticky top-0 z-50 glass-effect border-b border-white/5 px-6 lg:px-20 h-24 flex items-center justify-between">
+<nav className="sticky top-0 z-50 glass-effect border-b border-black/5 px-6 lg:px-20 h-24 flex items-center justify-between">
 <div className="flex items-center gap-4">
-<img alt="Dubai Duty Free Logo" className="size-14 object-contain" src="/dubaidutyfreelogo-dark.png"/>
+<img alt="Dubai Duty Free Logo" className="size-14 object-contain" src="/dubaidutyfreelogo.png"/>
 <span className="font-headline font-black text-2xl tracking-tight uppercase">Dubai Duty Free</span>
 </div>
 <div className="hidden md:flex items-center gap-10">
@@ -20,14 +20,30 @@ export default function Page() {
 </div>
 </nav>
 
-<main className="py-24 px-6 lg:px-20 bg-surface">
+{/* Deep Red Image Banner */}
+<section className="relative py-24 px-6 lg:px-20 overflow-hidden bg-background">
+  <div className="absolute inset-0 z-0">
+    <img alt="Exchange Rates Background" className="w-full h-full object-cover object-center" src="/red-chart-bg.jpg"/>
+  </div>
+  <div className="relative z-20 max-w-7xl mx-auto flex flex-col items-start">
+    <span className="inline-block px-3 py-1 bg-primary text-white font-label font-bold text-[10px] tracking-[0.2em] mb-4 shadow-md rounded-sm uppercase">Real-Time Data</span>
+    <h1 className="text-white font-headline font-black text-4xl lg:text-6xl leading-tight tracking-tighter mb-4 drop-shadow-2xl uppercase">
+      Exchange <span className="text-primary brightness-125">Rates</span>
+    </h1>
+    <p className="text-white/80 max-w-xl text-lg font-medium leading-relaxed drop-shadow-md">
+      Institutional-grade currency spreads updated continuously across all global trading markets. Monitor trends and secure real-time conversions.
+    </p>
+  </div>
+</section>
+
+<main className="py-20 px-6 lg:px-20 bg-surface">
 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
 
 <div className="lg:col-span-8 space-y-8">
 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
 <div className="relative flex-1 max-w-md">
 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
-<input className="w-full bg-surface-container-high border-none text-white pl-12 pr-4 py-3 focus:ring-1 focus:ring-primary transition-all text-sm" placeholder="Search currency (USD, EUR, GBP...)" type="text"/>
+<input className="w-full bg-surface-container-high border-none text-on-surface pl-12 pr-4 py-3 focus:ring-1 focus:ring-primary transition-all text-sm" placeholder="Search currency (USD, EUR, GBP...)" type="text"/>
 </div>
 <div className="flex items-center gap-4 text-[10px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant">
 <span>Last Update: 14:02 GST</span>
@@ -40,7 +56,7 @@ export default function Page() {
 <div className="overflow-x-auto">
 <table className="w-full text-left">
 <thead>
-<tr className="text-primary font-label text-[10px] font-bold uppercase tracking-[0.3em] border-b border-white/5">
+<tr className="text-primary font-label text-[10px] font-bold uppercase tracking-[0.3em] border-b border-black/5">
 <th className="pb-6 px-4">Currency</th>
 <th className="pb-6 px-4">Buy Rate</th>
 <th className="pb-6 px-4">Sell Rate</th>
@@ -48,74 +64,74 @@ export default function Page() {
 <th className="pb-6 px-4 text-right">Trend</th>
 </tr>
 </thead>
-<tbody className="divide-y divide-white/5 font-body">
+<tbody className="divide-y divide-black/5 font-body">
 
-<tr className="hover:bg-white/5 transition-colors group">
+<tr className="hover:bg-black/5 transition-colors group">
 <td className="py-6 px-4">
 <div className="flex items-center gap-4">
-<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-white/10">USD</div>
+<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-black/10">USD</div>
 <div>
-<div className="text-white font-bold text-sm">US Dollar</div>
+<div className="text-on-surface font-bold text-sm">US Dollar</div>
 <div className="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">United States</div>
 </div>
 </div>
 </td>
-<td className="py-6 px-4 text-white font-bold text-lg">3.655</td>
-<td className="py-6 px-4 text-white font-bold text-lg">3.682</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">3.655</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">3.682</td>
 <td className="py-6 px-4 text-green-500 text-xs font-black">+0.02%</td>
 <td className="py-6 px-4 text-right">
 <span className="material-symbols-outlined text-green-500">trending_up</span>
 </td>
 </tr>
 
-<tr className="hover:bg-white/5 transition-colors group">
+<tr className="hover:bg-black/5 transition-colors group">
 <td className="py-6 px-4">
 <div className="flex items-center gap-4">
-<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-white/10">EUR</div>
+<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-black/10">EUR</div>
 <div>
-<div className="text-white font-bold text-sm">Euro</div>
+<div className="text-on-surface font-bold text-sm">Euro</div>
 <div className="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">European Union</div>
 </div>
 </div>
 </td>
-<td className="py-6 px-4 text-white font-bold text-lg">3.942</td>
-<td className="py-6 px-4 text-white font-bold text-lg">4.015</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">3.942</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">4.015</td>
 <td className="py-6 px-4 text-error text-xs font-black">-0.15%</td>
 <td className="py-6 px-4 text-right">
 <span className="material-symbols-outlined text-error">trending_down</span>
 </td>
 </tr>
 
-<tr className="hover:bg-white/5 transition-colors group">
+<tr className="hover:bg-black/5 transition-colors group">
 <td className="py-6 px-4">
 <div className="flex items-center gap-4">
-<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-white/10">GBP</div>
+<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-black/10">GBP</div>
 <div>
-<div className="text-white font-bold text-sm">British Pound</div>
+<div className="text-on-surface font-bold text-sm">British Pound</div>
 <div className="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">United Kingdom</div>
 </div>
 </div>
 </td>
-<td className="py-6 px-4 text-white font-bold text-lg">4.628</td>
-<td className="py-6 px-4 text-white font-bold text-lg">4.712</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">4.628</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">4.712</td>
 <td className="py-6 px-4 text-green-500 text-xs font-black">+0.08%</td>
 <td className="py-6 px-4 text-right">
 <span className="material-symbols-outlined text-green-500">trending_up</span>
 </td>
 </tr>
 
-<tr className="hover:bg-white/5 transition-colors group">
+<tr className="hover:bg-black/5 transition-colors group">
 <td className="py-6 px-4">
 <div className="flex items-center gap-4">
-<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-white/10">JPY</div>
+<div className="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-black border border-black/10">JPY</div>
 <div>
-<div className="text-white font-bold text-sm">Japanese Yen</div>
+<div className="text-on-surface font-bold text-sm">Japanese Yen</div>
 <div className="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest">Japan</div>
 </div>
 </div>
 </td>
-<td className="py-6 px-4 text-white font-bold text-lg">0.024</td>
-<td className="py-6 px-4 text-white font-bold text-lg">0.026</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">0.024</td>
+<td className="py-6 px-4 text-on-surface font-bold text-lg">0.026</td>
 <td className="py-6 px-4 text-on-surface-variant text-xs font-black">0.00%</td>
 <td className="py-6 px-4 text-right">
 <span className="material-symbols-outlined text-on-surface-variant">horizontal_rule</span>
@@ -163,7 +179,7 @@ export default function Page() {
 <div className="mt-8 space-y-3">
 <div className="flex justify-between text-[10px] font-label font-bold uppercase tracking-widest">
 <span className="text-on-surface-variant">Exchange Rate</span>
-<span className="text-white">1 USD = 3.6725 AED</span>
+<span className="text-on-surface">1 USD = 3.6725 AED</span>
 </div>
 <div className="flex justify-between text-[10px] font-label font-bold uppercase tracking-widest">
 <span className="text-on-surface-variant">Service Fee (0%)</span>
@@ -175,17 +191,7 @@ export default function Page() {
 <button className="w-full mt-4 py-4 bg-primary text-on-primary font-headline font-black text-sm tracking-[0.2em] uppercase hover:brightness-110 transition-all">FIND NEAREST BRANCH</button>
 </div>
 </div>
-</div>
-
-<div className="mt-8 relative h-48 overflow-hidden group cursor-pointer border-t-4 border-primary">
-<img alt="Premium Banking" className="absolute inset-0 w-full h-full object-cover grayscale transition-transform duration-700 group-hover:scale-110" src="/hero.png"/>
-<div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col justify-end">
-<span className="text-[10px] bg-primary text-on-primary px-2 py-0.5 rounded-sm w-fit mb-2 font-bold uppercase tracking-widest">Exclusive Offer</span>
-<h4 className="font-headline font-bold text-white text-lg tracking-tight uppercase">DDF Platinum Rewards</h4>
-<p className="text-xs text-white/70">Get up to 5% cashback on all currency exchanges.</p>
-</div>
-</div>
-</aside>
+</div></aside>
 </div>
 </main>
 
@@ -195,11 +201,11 @@ export default function Page() {
 </button>
 </div>
 
-<footer className="bg-surface-container-lowest py-20 px-6 lg:px-20 border-t border-white/5">
+<footer className="bg-surface-container-lowest py-20 px-6 lg:px-20 border-t border-black/5">
 <div className="grid md:grid-cols-4 gap-12 mb-20 max-w-7xl mx-auto">
 <div className="col-span-2">
 <div className="flex items-center gap-4 mb-8">
-<img alt="Dubai Duty Free Logo" className="size-8 object-contain" src="/dubaidutyfreelogo-dark.png"/>
+<img alt="Dubai Duty Free Logo" className="size-8 object-contain" src="/dubaidutyfreelogo.png"/>
 <span className="font-headline font-black text-xl tracking-tight uppercase">Dubai Duty Free</span>
 </div>
 <p className="text-on-surface-variant text-sm max-w-sm mb-8 leading-relaxed">
@@ -231,7 +237,7 @@ export default function Page() {
 </ul>
 </div>
 </div>
-<div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5 font-label text-[10px] text-on-surface-variant font-bold tracking-widest">
+<div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-black/5 font-label text-[10px] text-on-surface-variant font-bold tracking-widest">
 <span>© 2024 DUBAI DUTY FREE. ALL RIGHTS RESERVED.</span>
 <div className="flex gap-8">
 <Link href="/">SYSTEM STATUS: <span className="text-primary">ONLINE</span></Link>
