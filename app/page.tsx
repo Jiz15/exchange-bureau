@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import HeroBackground from '@/components/HeroBackground';
+import MarketCarousel from '@/components/MarketCarousel';
 
 export default function Page() {
   return (
@@ -93,80 +94,14 @@ export default function Page() {
 </div>
 </section>
 <section className="py-16 bg-gradient-to-b from-surface to-surface-container-low border-y border-black/5 overflow-hidden">
-  <div className="px-6 lg:px-20 mb-10 flex flex-col md:flex-row justify-between items-end gap-6 max-w-[1600px] mx-auto">
-    <div className="flex items-center gap-4">
-      <div>
-        <div className="flex items-center gap-3 mb-2">
-          <h2 className="font-headline font-black text-2xl tracking-tight uppercase">Market Watch</h2>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-primary/10 border border-primary/20 rounded-full">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-live"></span>
-            <span className="text-[9px] font-bold tracking-widest text-primary">LIVE</span>
-          </div>
-        </div>
-        <p className="text-sm text-on-surface-variant font-medium tracking-wide">
-          Last updated: <span suppressHydrationWarning>{new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
-        </p>
-      </div>
-    </div>
-    <button className="font-label font-bold text-[10px] text-primary tracking-widest flex items-center gap-2 hover:opacity-70 transition-opacity uppercase">
-      VIEW ALL MARKETS <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
-    </button>
-  </div>
 
-  <div className="relative w-full overflow-hidden flex pb-8 pt-2">
-    {/* Fade effect edges */}
-    <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface via-surface/80 to-transparent z-10 pointer-events-none"></div>
-    <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface-container-low via-surface-container-low/80 to-transparent z-10 pointer-events-none"></div>
 
-    <div className="flex animate-marquee hover-pause w-max gap-6 px-6">
-      {/* Duplicated for seamless loop */}
-      {[
-        { pair: "USD / AED", name: "US DOLLAR", rate: "3.6725", buy: "3.6700", sell: "3.6750", trend: "up", percent: "+0.01%" },
-        { pair: "EUR / AED", name: "EURO", rate: "3.9842", buy: "3.9800", sell: "3.9880", trend: "up", percent: "+0.15%" },
-        { pair: "GBP / AED", name: "BRITISH POUND", rate: "4.6310", buy: "4.6250", sell: "4.6380", trend: "down", percent: "-0.08%" },
-        { pair: "INR / AED", name: "INDIAN RUPEE", rate: "0.0442", buy: "0.0440", sell: "0.0445", trend: "up", percent: "+0.02%" },
-        { pair: "XAU / USD", name: "GOLD (OUNCE)", rate: "2345.50", buy: "2344.00", sell: "2347.00", trend: "up", percent: "+0.85%" },
-        { pair: "USD / AED", name: "US DOLLAR", rate: "3.6725", buy: "3.6700", sell: "3.6750", trend: "up", percent: "+0.01%" },
-        { pair: "EUR / AED", name: "EURO", rate: "3.9842", buy: "3.9800", sell: "3.9880", trend: "up", percent: "+0.15%" },
-        { pair: "GBP / AED", name: "BRITISH POUND", rate: "4.6310", buy: "4.6250", sell: "4.6380", trend: "down", percent: "-0.08%" },
-        { pair: "INR / AED", name: "INDIAN RUPEE", rate: "0.0442", buy: "0.0440", sell: "0.0445", trend: "up", percent: "+0.02%" },
-        { pair: "XAU / USD", name: "GOLD (OUNCE)", rate: "2345.50", buy: "2344.00", sell: "2347.00", trend: "up", percent: "+0.85%" }
-      ].map((market, idx) => (
-        <div key={idx} className="w-[320px] shrink-0 bg-white border border-black/5 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all cursor-pointer group">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <div className="font-headline font-black text-lg text-on-surface">{market.pair}</div>
-              <div className="font-label text-[10px] tracking-widest text-on-surface-variant font-bold mt-0.5">{market.name}</div>
-            </div>
-            <div className={`flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-md ${market.trend === 'up' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-[#ee0000] border border-red-200'}`}>
-              <span className="material-symbols-outlined text-[14px]">
-                {market.trend === 'up' ? 'trending_up' : 'trending_down'}
-              </span>
-              {market.percent}
-            </div>
-          </div>
-          <div className="mb-5">
-            <div className="font-headline font-bold text-3xl text-on-surface tabular-nums tracking-tight">{market.rate}</div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 border-t border-black/5 pt-4">
-            <div>
-              <div className="text-[10px] font-label font-bold text-on-surface-variant tracking-widest mb-1">BUY</div>
-              <div className="font-headline font-semibold text-sm tabular-nums text-on-surface">{market.buy}</div>
-            </div>
-            <div>
-              <div className="text-[10px] font-label font-bold text-on-surface-variant tracking-widest mb-1">SELL</div>
-              <div className="font-headline font-semibold text-sm tabular-nums text-on-surface">{market.sell}</div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
+    <MarketCarousel />
 </section>
 
 <section className="py-24 px-6 lg:px-20 bg-surface-container-low relative overflow-hidden">
 <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-<div className="absolute inset-0 bg-background/0"></div>
+<div className="absolute inset-0 bg-black/20 z-10"></div>
 <img alt="Decorative" className="w-full h-full object-cover" src="/red-chart-bg.jpg"/>
 </div>
 
@@ -268,30 +203,53 @@ export default function Page() {
 </div>
 </section>
 
-<section className="py-16 px-6 lg:px-20 bg-surface border-y border-black/10 my-24">
-  <div className="grid md:grid-cols-3 max-w-[1600px] mx-auto divide-y md:divide-y-0 md:divide-x divide-black/10">
-    <div className="flex flex-col items-center text-center p-8 lg:p-12 group cursor-pointer hover:bg-black/[0.02] transition-colors">
-      <div className="w-16 h-16 mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
-        <span className="material-symbols-outlined text-primary group-hover:text-white text-[32px] transition-colors duration-500" data-icon="money_off">money_off</span>
-      </div>
-      <h4 className="font-headline font-bold text-on-surface text-xl mb-3 tracking-tight">No Commission</h4>
-      <p className="text-on-surface-variant text-sm leading-relaxed max-w-[300px]">Transparent pricing with absolutely no hidden service charges or fees.</p>
+<section className="py-24 px-6 lg:px-20 my-12 relative overflow-hidden bg-black" style={{ backgroundImage: 'url("/why-choose-us-bg.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+  {/* 0% opacity gradient layer as requested */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/0 to-black/0 pointer-events-none"></div>
+  
+  <div className="max-w-[1600px] mx-auto relative z-10">
+    <div className="text-center mb-16">
+      <h2 className="font-headline font-black text-3xl lg:text-4xl tracking-tight uppercase mb-4 text-white drop-shadow-md">Why Choose Us</h2>
+      <p className="font-body text-base lg:text-lg max-w-2xl mx-auto mb-6 text-white/90 drop-shadow">Experience unparalleled service, security, and convenience with our premium currency exchange solutions tailored for global travelers.</p>
+      <div className="w-16 h-1 bg-white mx-auto shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
     </div>
     
-    <div className="flex flex-col items-center text-center p-8 lg:p-12 group cursor-pointer hover:bg-black/[0.02] transition-colors">
-      <div className="w-16 h-16 mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
-        <span className="material-symbols-outlined text-primary group-hover:text-white text-[32px] transition-colors duration-500" data-icon="flight_takeoff">flight_takeoff</span>
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <div className="group bg-black/40 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:border-primary/40 shadow-2xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="w-16 h-16 mb-8 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
+            <span className="material-symbols-outlined text-white group-hover:text-white text-[32px] transition-colors duration-500" data-icon="money_off">money_off</span>
+          </div>
+          <h4 className="font-headline font-black text-white text-2xl mb-4 tracking-tight uppercase">No Commission</h4>
+          <p className="text-white/70 text-base leading-relaxed">Transparent pricing with absolutely no hidden service charges or fees.</p>
+        </div>
       </div>
-      <h4 className="font-headline font-bold text-on-surface text-xl mb-3 tracking-tight">24/7 Airport Service</h4>
-      <p className="text-on-surface-variant text-sm leading-relaxed max-w-[300px]">Convenient exchange services available around the clock to meet all your travel needs.</p>
-    </div>
+      
+      {/* Card 2 */}
+      <div className="group bg-black/40 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:border-primary/40 shadow-2xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="w-16 h-16 mb-8 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:-rotate-6 transition-all duration-500 shadow-sm">
+            <span className="material-symbols-outlined text-white group-hover:text-white text-[32px] transition-colors duration-500" data-icon="flight_takeoff">flight_takeoff</span>
+          </div>
+          <h4 className="font-headline font-black text-white text-2xl mb-4 tracking-tight uppercase">24/7 Airport Service</h4>
+          <p className="text-white/70 text-base leading-relaxed">Convenient exchange services available around the clock to meet all your travel needs.</p>
+        </div>
+      </div>
 
-    <div className="flex flex-col items-center text-center p-8 lg:p-12 group cursor-pointer hover:bg-black/[0.02] transition-colors">
-      <div className="w-16 h-16 mb-6 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
-        <span className="material-symbols-outlined text-primary group-hover:text-white text-[32px] transition-colors duration-500" data-icon="shield">shield</span>
+      {/* Card 3 */}
+      <div className="group bg-black/40 backdrop-blur-md rounded-3xl p-10 border border-white/10 hover:border-primary/40 shadow-2xl hover:-translate-y-2 transition-all duration-500 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="relative z-10">
+          <div className="w-16 h-16 mb-8 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:rotate-6 transition-all duration-500 shadow-sm">
+            <span className="material-symbols-outlined text-white group-hover:text-white text-[32px] transition-colors duration-500" data-icon="shield">shield</span>
+          </div>
+          <h4 className="font-headline font-black text-white text-2xl mb-4 tracking-tight uppercase">Licensed & Regulated</h4>
+          <p className="text-white/70 text-base leading-relaxed">Fully licensed and regulated by the UAE Central Bank for total peace of mind.</p>
+        </div>
       </div>
-      <h4 className="font-headline font-bold text-on-surface text-xl mb-3 tracking-tight">Licensed & Regulated</h4>
-      <p className="text-on-surface-variant text-sm leading-relaxed max-w-[300px]">Fully licensed and regulated by the UAE Central Bank for total peace of mind.</p>
     </div>
   </div>
 </section>

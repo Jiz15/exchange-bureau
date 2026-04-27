@@ -20,6 +20,8 @@ export default function HeroBackground() {
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-background">
+      {/* 20% Dark Overlay */}
+      <div className="absolute inset-0 z-10 pointer-events-none bg-black/20"></div>
       {images.map((src, index) => (
         <div
           key={src}
