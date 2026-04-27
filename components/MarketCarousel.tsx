@@ -87,7 +87,7 @@ export default function MarketCarousel() {
           return (
             <div
               key={idx}
-              className={`absolute top-0 left-0 w-full bg-surface-container-high border-2 ${isCenter ? 'border-primary/50 shadow-[0_0_40px_rgba(238,0,0,0.15)] bg-surface' : 'border-black/5 shadow-lg'} p-6 rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer group`}
+              className={`absolute top-0 left-0 w-full bg-white border-2 ${isCenter ? 'border-primary/50 shadow-[0_0_40px_rgba(238,0,0,0.15)]' : 'border-black/5 shadow-lg'} p-6 rounded-2xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] cursor-pointer group`}
               style={style}
               onClick={() => setCurrentIndex(idx)}
             >
