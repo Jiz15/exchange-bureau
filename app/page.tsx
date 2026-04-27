@@ -101,7 +101,7 @@ export default function Page() {
 
 <section className="py-24 px-6 lg:px-20 bg-surface-container-low relative overflow-hidden">
 <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-<div className="absolute inset-0 bg-black/20 z-10"></div>
+<div className="absolute inset-0 bg-black/45 z-10"></div>
 <img alt="Decorative" className="w-full h-full object-cover" src="/red-chart-bg.jpg"/>
 </div>
 
